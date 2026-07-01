@@ -2,14 +2,6 @@
 #define STRING_H
 // sort
 // sort reverse
-// flip
-
-/*void print(const char *p) {
-	while(*p) {
-		putchar(*p);
-		p++;
-	}
-}*/
 
 int get_len(const char *p) {
 	int len = 0;
@@ -19,15 +11,22 @@ int get_len(const char *p) {
 		p++;
 	}
 
-	return len;
+	return len - 1;
 }
 
 
+void swap(char* x, char* y) {
+	char tmp = *x;
+	*x = *y;
+	*y = tmp;
+}
 
-void flip(const char *p) {
+void flip(char *p) {
 	int len = get_len(p);
 
+	for(int i = 0; i <= (len/2); i++) {
+		swap(&p[i], &p[len-i]);
+	}
 }
-
 
 #endif
